@@ -1,0 +1,14 @@
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\bin\Debug\net6.0\SehaNotebook.DAL.deps.json
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\bin\Debug\net6.0\SehaNotebook.DAL.runtimeconfig.json
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\bin\Debug\net6.0\SehaNotebook.DAL.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\bin\Debug\net6.0\SehaNotebook.DAL.pdb
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\obj\Debug\net6.0\SehaNotebook.DAL.csproj.AssemblyReference.cache
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\obj\Debug\net6.0\SehaNotebook.DAL.GeneratedMSBuildEditorConfig.editorconfig
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\obj\Debug\net6.0\SehaNotebook.DAL.AssemblyInfoInputs.cache
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\obj\Debug\net6.0\SehaNotebook.DAL.AssemblyInfo.cs
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\obj\Debug\net6.0\SehaNotebook.DAL.csproj.CoreCompileInputs.cache
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\obj\Debug\net6.0\SehaNotebook.DAL.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\obj\Debug\net6.0\refint\SehaNotebook.DAL.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\obj\Debug\net6.0\SehaNotebook.DAL.pdb
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\obj\Debug\net6.0\SehaNotebook.DAL.genruntimeconfig.cache
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\obj\Debug\net6.0\ref\SehaNotebook.DAL.dll

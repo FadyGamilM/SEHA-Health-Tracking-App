@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "YumXoAbiZcN/m0vsRRVJ9+r3LOZ+X3vJozhShq4Ochs=",
+  "Source": "SehaNotebook.API",
+  "BasePath": "_content/SehaNotebook.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
