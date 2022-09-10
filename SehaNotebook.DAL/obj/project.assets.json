@@ -345,6 +345,16 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "SehaNotebook.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/SehaNotebook.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SehaNotebook.Domain.dll": {}
+        }
       }
     }
   },
@@ -887,6 +897,11 @@
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "SehaNotebook.Domain/1.0.0": {
+      "type": "project",
+      "path": "../SehaNotebook.Domain/SehaNotebook.Domain.csproj",
+      "msbuildProject": "../SehaNotebook.Domain/SehaNotebook.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -894,7 +909,8 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.6",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.6",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.6",
-      "Npgsql.EntityFrameworkCore.PostgreSQL >= 6.0.6"
+      "Npgsql.EntityFrameworkCore.PostgreSQL >= 6.0.6",
+      "SehaNotebook.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -927,7 +943,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "F:\\__111 COMPUTER SCIENCE\\4th CSE 2022\\dotnet\\dev\\SEHA-Health-Tracking-App\\SehaNotebook.Domain\\SehaNotebook.Domain.csproj": {
+              "projectPath": "F:\\__111 COMPUTER SCIENCE\\4th CSE 2022\\dotnet\\dev\\SEHA-Health-Tracking-App\\SehaNotebook.Domain\\SehaNotebook.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

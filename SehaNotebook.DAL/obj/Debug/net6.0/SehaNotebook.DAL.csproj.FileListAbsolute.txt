@@ -12,3 +12,6 @@ F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaN
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\obj\Debug\net6.0\SehaNotebook.DAL.pdb
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\obj\Debug\net6.0\SehaNotebook.DAL.genruntimeconfig.cache
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\obj\Debug\net6.0\ref\SehaNotebook.DAL.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\bin\Debug\net6.0\SehaNotebook.Domain.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\bin\Debug\net6.0\SehaNotebook.Domain.pdb
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.DAL\obj\Debug\net6.0\SehaNotebook.DAL.csproj.CopyComplete

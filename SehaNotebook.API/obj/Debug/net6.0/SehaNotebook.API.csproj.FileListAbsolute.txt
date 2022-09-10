@@ -5,10 +5,8 @@ F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaN
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\SehaNotebook.API.runtimeconfig.json
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\SehaNotebook.API.dll
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\SehaNotebook.API.pdb
-F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Humanizer.dll
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
@@ -33,3 +31,14 @@ F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaN
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\obj\Debug\net6.0\SehaNotebook.API.pdb
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\obj\Debug\net6.0\SehaNotebook.API.genruntimeconfig.cache
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\obj\Debug\net6.0\ref\SehaNotebook.API.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\SehaNotebook.DAL.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\SehaNotebook.Domain.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\SehaNotebook.DAL.pdb
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\SehaNotebook.Domain.pdb
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Humanizer.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
