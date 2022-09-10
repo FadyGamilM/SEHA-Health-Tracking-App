@@ -33,6 +33,9 @@
             "projectReferences": {
               "F:\\__111 COMPUTER SCIENCE\\4th CSE 2022\\dotnet\\dev\\SEHA-Health-Tracking-App\\SehaNotebook.DAL\\SehaNotebook.DAL.csproj": {
                 "projectPath": "F:\\__111 COMPUTER SCIENCE\\4th CSE 2022\\dotnet\\dev\\SEHA-Health-Tracking-App\\SehaNotebook.DAL\\SehaNotebook.DAL.csproj"
+              },
+              "F:\\__111 COMPUTER SCIENCE\\4th CSE 2022\\dotnet\\dev\\SEHA-Health-Tracking-App\\SehaNotebook.Domain\\SehaNotebook.Domain.csproj": {
+                "projectPath": "F:\\__111 COMPUTER SCIENCE\\4th CSE 2022\\dotnet\\dev\\SEHA-Health-Tracking-App\\SehaNotebook.Domain\\SehaNotebook.Domain.csproj"
               }
             }
           }

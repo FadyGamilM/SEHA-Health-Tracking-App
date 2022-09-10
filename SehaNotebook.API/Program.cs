@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SehaNotebook.API.Services.UserServices;
 using SehaNotebook.DAL.Data;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,8 @@ builder.Services.AddEntityFrameworkNpgsql().AddDbContext<AppDbContext>(
         builder.Configuration.GetConnectionString("conn")
     )
 );
+//=> Inject the User repository
+builder.Services.AddScoped<IUserRepo, UserRepo>();
 
 var app = builder.Build();
 

@@ -1089,6 +1089,7 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.6",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.6",
       "SehaNotebook.DAL >= 1.0.0",
+      "SehaNotebook.Domain >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -1125,6 +1126,9 @@
           "projectReferences": {
             "F:\\__111 COMPUTER SCIENCE\\4th CSE 2022\\dotnet\\dev\\SEHA-Health-Tracking-App\\SehaNotebook.DAL\\SehaNotebook.DAL.csproj": {
               "projectPath": "F:\\__111 COMPUTER SCIENCE\\4th CSE 2022\\dotnet\\dev\\SEHA-Health-Tracking-App\\SehaNotebook.DAL\\SehaNotebook.DAL.csproj"
+            },
+            "F:\\__111 COMPUTER SCIENCE\\4th CSE 2022\\dotnet\\dev\\SEHA-Health-Tracking-App\\SehaNotebook.Domain\\SehaNotebook.Domain.csproj": {
+              "projectPath": "F:\\__111 COMPUTER SCIENCE\\4th CSE 2022\\dotnet\\dev\\SEHA-Health-Tracking-App\\SehaNotebook.Domain\\SehaNotebook.Domain.csproj"
             }
           }
         }
