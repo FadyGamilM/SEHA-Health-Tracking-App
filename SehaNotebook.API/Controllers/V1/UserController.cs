@@ -8,16 +8,11 @@ using SehaNotebook.Domain.Entities;
 
 namespace SehaNotebook.API.Controllers.V1
 {
-   [ApiController]
-   [Route("api/v{version:apiVersion}/users")]
-   [ApiVersion("1.0")]
-   public class UserController : ControllerBase
+
+   public class UserController : BaseController
    {
-      private IUnitOfWork _unitOfWork;
-      public UserController(IUnitOfWork unitOfWork)
-      {
-         _unitOfWork = unitOfWork;
-      }
+      public UserController(IUnitOfWork unitOfWork) : base(unitOfWork)
+      {}
       
       [HttpGet("")]
       public async Task<IActionResult> GetUsers ()
