@@ -8,13 +8,18 @@ using SehaNotebook.Authentication.DTOs;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
+using SehaNotebook.Domain.Entities;
 
 namespace SehaNotebook.API.Controllers.V1
 {
+   [Route("api/v{version:apiVersion}/accounts")]
    public class AccountController : BaseController
    {
+      //! Inject the userManager to add the user to the AspNetUsers relation
       private readonly UserManager<IdentityUser> _userManager;
+      //! Inject the jwtConfig to get the configs from appsettings
       private readonly JwtConfig _jwtConfig;
+      //! Depedency Injection 
       public AccountController(
          IUnitOfWork unitOfWork, 
          UserManager<IdentityUser> userManager,
@@ -26,7 +31,7 @@ namespace SehaNotebook.API.Controllers.V1
          _jwtConfig = optionsMonitor.CurrentValue;
       }
 
-      // Register action method
+      //! Register action method
       [HttpPost("register")]
       public async Task<IActionResult> Register([FromBody] RegisterRequestDto registerDto)
       {
@@ -35,12 +40,24 @@ namespace SehaNotebook.API.Controllers.V1
             //! check if this email is already registered before
             var registeredBefore = await _userManager.FindByEmailAsync(registerDto.Email);
             if(registeredBefore == null){
-               //! create new identity user
+               //! create new identity user to add it to the AspNetUsers relation
                var newUser = new IdentityUser(){
                   Email = registerDto.Email,
                   UserName = registerDto.Email,
                   EmailConfirmed = true
                };
+               //! create a new instance from our custom Users table to add to Users relation
+               var user = new User(){
+                  FirstName = registerDto.FirstName,
+                  LastName = registerDto.LastName,
+                  Email = registerDto.Email,
+                  DateOfBirth = DateTime.UtcNow,
+                  Phone = "",
+                  Country = "",
+                  Status = true,
+               };
+               await _unitOfWork.UserRepository.Add(user);
+               await _unitOfWork.CompleteAsyncOperations();
                //! save this identity user into the table
                var isCreated = await _userManager.CreateAsync(newUser, registerDto.Password);
                if(isCreated.Succeeded){
@@ -61,7 +78,9 @@ namespace SehaNotebook.API.Controllers.V1
                      Errors = isCreated.Errors.Select(err => err.Description).ToList()
                   });
                }
-            }else{
+            }
+            //! if its not valid..
+            else{
                return BadRequest(
                   new RegisterResponseDto(){
                      Success = false,

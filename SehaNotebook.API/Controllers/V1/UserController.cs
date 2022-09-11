@@ -9,6 +9,7 @@ using SehaNotebook.Domain.Entities;
 namespace SehaNotebook.API.Controllers.V1
 {
 
+   [Route("api/v{version:apiVersion}/users")]
    public class UserController : BaseController
    {
       public UserController(IUnitOfWork unitOfWork) : base(unitOfWork)

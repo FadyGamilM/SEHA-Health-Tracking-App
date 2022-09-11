@@ -53,3 +53,5 @@ F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaN
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\SehaNotebook.Authentication.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\SehaNotebook.Authentication.pdb

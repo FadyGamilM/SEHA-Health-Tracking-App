@@ -586,6 +586,16 @@
           }
         }
       },
+      "SehaNotebook.Authentication/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/SehaNotebook.Authentication.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SehaNotebook.Authentication.dll": {}
+        }
+      },
       "SehaNotebook.DAL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1697,6 +1707,11 @@
         "version.txt"
       ]
     },
+    "SehaNotebook.Authentication/1.0.0": {
+      "type": "project",
+      "path": "../SehaNotebook.Authentication/SehaNotebook.Authentication.csproj",
+      "msbuildProject": "../SehaNotebook.Authentication/SehaNotebook.Authentication.csproj"
+    },
     "SehaNotebook.DAL/1.0.0": {
       "type": "project",
       "path": "../SehaNotebook.DAL/SehaNotebook.DAL.csproj",
@@ -1715,6 +1730,7 @@
       "Microsoft.AspNetCore.Identity.UI >= 6.0.6",
       "Microsoft.AspNetCore.Mvc.Versioning >= 5.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.6",
+      "SehaNotebook.Authentication >= 1.0.0",
       "SehaNotebook.DAL >= 1.0.0",
       "SehaNotebook.Domain >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
@@ -1751,6 +1767,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "F:\\__111 COMPUTER SCIENCE\\4th CSE 2022\\dotnet\\dev\\SEHA-Health-Tracking-App\\SehaNotebook.Authentication\\SehaNotebook.Authentication.csproj": {
+              "projectPath": "F:\\__111 COMPUTER SCIENCE\\4th CSE 2022\\dotnet\\dev\\SEHA-Health-Tracking-App\\SehaNotebook.Authentication\\SehaNotebook.Authentication.csproj"
+            },
             "F:\\__111 COMPUTER SCIENCE\\4th CSE 2022\\dotnet\\dev\\SEHA-Health-Tracking-App\\SehaNotebook.DAL\\SehaNotebook.DAL.csproj": {
               "projectPath": "F:\\__111 COMPUTER SCIENCE\\4th CSE 2022\\dotnet\\dev\\SEHA-Health-Tracking-App\\SehaNotebook.DAL\\SehaNotebook.DAL.csproj"
             },
