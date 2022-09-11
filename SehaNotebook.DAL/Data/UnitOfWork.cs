@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Logging;
 using SehaNotebook.DAL.IConfiguration;
 using SehaNotebook.DAL.IRepository;
+using SehaNotebook.DAL.Repository;
 
 namespace SehaNotebook.DAL.Data
 {
@@ -13,6 +14,7 @@ namespace SehaNotebook.DAL.Data
       {
          _context = context;
          _logger = loggerFactory.CreateLogger("DB_Logs"); 
+         UserRepository = new UserRepository(_context, _logger);
       }
 
       public async Task CompleteAsyncOperations()
@@ -20,6 +22,7 @@ namespace SehaNotebook.DAL.Data
          await _context.SaveChangesAsync();
       }
 
+      // for better garbage collector and resource
       public void Dispose()
       {
          // handling memory management by deleting the instance of context we are not using now

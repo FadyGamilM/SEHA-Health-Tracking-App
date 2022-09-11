@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using SehaNotebook.API.Services.UserServices;
 using SehaNotebook.DAL.Data;
+using SehaNotebook.DAL.IConfiguration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -17,9 +19,10 @@ builder.Services.AddEntityFrameworkNpgsql().AddDbContext<AppDbContext>(
         builder.Configuration.GetConnectionString("conn")
     )
 );
-//=> Inject the User repository
+//*=> Inject the User repository
 builder.Services.AddScoped<IUserRepo, UserRepo>();
-
+//*=> Inject the UnitOfWork serivce
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

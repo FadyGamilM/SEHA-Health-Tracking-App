@@ -12,6 +12,7 @@ namespace SehaNotebook.DAL.Repository
       {
       }
 
+      //! concrete implementation of GetAll() method which is one of the general CRUD inherited from the GenericRepository
       public override async Task<IEnumerable<User>> GetAll()
       {
          try{
@@ -28,6 +29,8 @@ namespace SehaNotebook.DAL.Repository
          }
       }
 
+
+      //! concrete implementation of GetUserByEmail() method which is resourcespecific related method from IUserRepository
       public async Task<User> GetUserByEmail(string email)
       {
          try{

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SehaNotebook.API.Services.UserServices;
 using SehaNotebook.DAL.Data;
+using SehaNotebook.DAL.IConfiguration;
 using SehaNotebook.Domain.DTOs;
 using SehaNotebook.Domain.Entities;
 
@@ -11,20 +12,29 @@ namespace SehaNotebook.API.Controllers
    [Route("api/users")]
    public class UserController : ControllerBase
    {
-      private readonly IUserRepo _userRepo;
-      private readonly AppDbContext _context;
-      public UserController(IUserRepo userRepo, AppDbContext context)
+      private IUnitOfWork _unitOfWork;
+      public UserController(IUnitOfWork unitOfWork)
       {
-         _userRepo = userRepo;
-         _context = context;
+         _unitOfWork = unitOfWork;
       }
       
       [HttpGet("")]
       public async Task<IActionResult> GetUsers ()
       {
-         var users = await this._userRepo.GetUsers();
+         var users = await _unitOfWork.UserRepository.GetAll();
          return Ok(users);
       }
+
+      [HttpGet("{Id:Guid}", Name ="GetUser")]
+      public async Task<IActionResult> GetUserById([FromRoute] Guid Id)
+      {
+         var user = await _unitOfWork.UserRepository.GetById(Id);
+         if (user == null){
+            return NotFound();
+         }else{
+            return Ok(user);
+         }
+      } 
 
       [HttpPost]
       public async Task<IActionResult> AddUser([FromBody]CreateUserDto user)
@@ -35,11 +45,18 @@ namespace SehaNotebook.API.Controllers
          userEntity.Country = user.Country;
          userEntity.Email = user.Email;
          userEntity.Phone = user.Phone;
-         userEntity.DateOfBirth = Convert.ToDateTime(user.DateOfBirth);
+         userEntity.DateOfBirth = DateTime.UtcNow;
          userEntity.Status = true;
-         var result = await this._userRepo.AddUser(userEntity);
+         
+         var result = await _unitOfWork.UserRepository.Add(userEntity);
+         await _unitOfWork.CompleteAsyncOperations();
+
          if(result == true){
-            return Ok("Created");
+            return CreatedAtRoute(
+               "GetUser",
+               new { id = userEntity.Id},
+               userEntity
+            );
          }else{
             return StatusCode(500, "Error while creating a new user");
          }
