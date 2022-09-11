@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SehaNotebook.API.Services.UserServices;
 using SehaNotebook.DAL.Data;
@@ -23,6 +24,19 @@ builder.Services.AddEntityFrameworkNpgsql().AddDbContext<AppDbContext>(
 builder.Services.AddScoped<IUserRepo, UserRepo>();
 //*=> Inject the UnitOfWork serivce
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+//*=> utilize the api versioning nuget package
+builder.Services.AddApiVersioning(
+    options => 
+    {
+        // provide our client by the different api versions that we have
+        options.ReportApiVersions = true;
+        // allow the api to automatically provide a default version
+        options.AssumeDefaultVersionWhenUnspecified = true;
+        // the default version
+        options.DefaultApiVersion= ApiVersion.Default;
+    }
+);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -42,3 +42,4 @@ F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaN
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\SehaNotebook.Domain.pdb
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Humanizer.dll
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Versioning.dll

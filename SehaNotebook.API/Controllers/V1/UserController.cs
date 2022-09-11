@@ -6,10 +6,11 @@ using SehaNotebook.DAL.IConfiguration;
 using SehaNotebook.Domain.DTOs;
 using SehaNotebook.Domain.Entities;
 
-namespace SehaNotebook.API.Controllers
+namespace SehaNotebook.API.Controllers.V1
 {
    [ApiController]
-   [Route("api/users")]
+   [Route("api/v{version:apiVersion}/users")]
+   [ApiVersion("1.0")]
    public class UserController : ControllerBase
    {
       private IUnitOfWork _unitOfWork;
