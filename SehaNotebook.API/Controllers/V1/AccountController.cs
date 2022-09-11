@@ -42,12 +42,14 @@ namespace SehaNotebook.API.Controllers.V1
             if(registeredBefore == null){
                //! create new identity user to add it to the AspNetUsers relation
                var newUser = new IdentityUser(){
+                  // the identityUser generate a Guid in string format as an Id
                   Email = registerDto.Email,
                   UserName = registerDto.Email,
                   EmailConfirmed = true
                };
                //! create a new instance from our custom Users table to add to Users relation
                var user = new User(){
+                  IdentityId = new Guid(newUser.Id),
                   FirstName = registerDto.FirstName,
                   LastName = registerDto.LastName,
                   Email = registerDto.Email,
@@ -71,7 +73,9 @@ namespace SehaNotebook.API.Controllers.V1
                         Errors = new List<string>(){}
                      }
                   );
-               }else{
+               }
+               //! if something go wrong while saving this new user to the database
+               else{
                   return StatusCode(500, new RegisterResponseDto(){
                      Success = false,
                      Token = null,
@@ -79,7 +83,7 @@ namespace SehaNotebook.API.Controllers.V1
                   });
                }
             }
-            //! if its not valid..
+            //! if this email is registered before
             else{
                return BadRequest(
                   new RegisterResponseDto(){
@@ -91,7 +95,9 @@ namespace SehaNotebook.API.Controllers.V1
                   }
                );
             }
-         }else{
+         }
+         //! if the request body is not valid..
+         else{
             return BadRequest(
                new RegisterResponseDto(){
                   Token = null,
@@ -103,6 +109,72 @@ namespace SehaNotebook.API.Controllers.V1
             );
          }
       }
+
+      [HttpPost("login")]
+      public async Task<IActionResult> Login([FromBody] LoginRequestDto loginDto)
+      {
+         //! check the request body if its valid
+         if (ModelState.IsValid)
+         {
+            //! check if there is a user with this email in our DB
+            var userExists = await _userManager.FindByEmailAsync(loginDto.Email);
+            if (userExists != null)
+            {
+               //! check if password is correct
+               var passMatches = await _userManager.CheckPasswordAsync(userExists, loginDto.Password);
+               if (passMatches == true)
+               {
+                  //! Generate the jwt token
+                  var jwtToken = GenerateJwtToken(userExists);
+                  return Ok(
+                     new LoginResponseDto(){
+                        Success =true,
+                        Token = jwtToken,
+                        Errors = new List<string>(){}
+                     }
+                  );
+               }
+               else
+               {
+                  return BadRequest(
+                     new LoginResponseDto(){
+                        Success =false,
+                        Token = null,
+                        Errors = new List<string>(){
+                        "Invalid Credentials"
+                        }
+                     }
+                  );
+               }
+            }
+            else
+            {
+              return BadRequest(
+                     new LoginResponseDto(){
+                        Success =false,
+                        Token = null,
+                        Errors = new List<string>(){
+                        "Invalid Credentials"
+                        }
+                     }
+                  );
+            }
+         }
+         //! if body is not valid request body
+         else
+         {
+            return BadRequest(
+               new LoginResponseDto(){
+                  Success =false,
+                  Token = null,
+                  Errors = new List<string>(){
+                     "Invalid Request"
+                  }
+               }
+            );
+         }
+      }
+
       //! Method to generate a token and return it 
       private string GenerateJwtToken(IdentityUser user)
       {
