@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using SehaNotebook.API.Services.UserServices;
 using SehaNotebook.DAL.Data;
 using SehaNotebook.DAL.IConfiguration;
-using SehaNotebook.API.Configurations;
+using SehaNotebook.Authentication.Configurations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;

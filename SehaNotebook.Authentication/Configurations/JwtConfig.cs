@@ -1,4 +1,4 @@
-namespace SehaNotebook.API.Configurations
+namespace SehaNotebook.Authentication.Configurations
 {
    public class JwtConfig
    {

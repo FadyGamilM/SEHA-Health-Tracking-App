@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SehaNotebook.DAL\SehaNotebook.DAL.csproj" />
     <ProjectReference Include="..\SehaNotebook.Domain\SehaNotebook.Domain.csproj" />
+    <ProjectReference Include="..\SehaNotebook.Authentication\SehaNotebook.Authentication.csproj" />
   </ItemGroup>
 
 </Project>
