@@ -193,7 +193,7 @@ namespace SehaNotebook.API.Controllers.V1
                   new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                }
             ),
-            Expires = DateTime.UtcNow.AddHours(3), // update the expiration time to minutes
+            Expires = DateTime.UtcNow.Add(_jwtConfig.ExpiryTimeFrame),    
             // the algorithm to verify 
             SigningCredentials = new SigningCredentials(
                new SymmetricSecurityKey(key),
