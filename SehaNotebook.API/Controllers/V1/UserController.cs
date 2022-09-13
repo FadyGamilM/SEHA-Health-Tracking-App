@@ -1,6 +1,8 @@
+using System.Net;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SehaNotebook.API.Services.UserServices;
 using SehaNotebook.DAL.Data;
 using SehaNotebook.DAL.IConfiguration;
 using SehaNotebook.Domain.DTOs;
@@ -10,6 +12,8 @@ namespace SehaNotebook.API.Controllers.V1
 {
 
    [Route("api/v{version:apiVersion}/users")]
+   // access this resource only if the header contains a token and a valid one 
+   [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
    public class UserController : BaseController
    {
       public UserController(IUnitOfWork unitOfWork) : base(unitOfWork)

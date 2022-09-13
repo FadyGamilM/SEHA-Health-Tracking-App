@@ -3,6 +3,8 @@ namespace SehaNotebook.Domain.Entities
 {
    public class User : BaseEntity
    {
+      // id for the identity to add the user into the identity table
+      public Guid IdentityId {get; set;}
       public string FirstName {get; set;}
       public string LastName {get; set;}
       public string Email {get; set;}

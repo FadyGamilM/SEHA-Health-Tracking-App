@@ -1,7 +1,6 @@
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SehaNotebook.API.Services.UserServices;
 using SehaNotebook.DAL.Data;
 using SehaNotebook.DAL.IConfiguration;
 using SehaNotebook.Authentication.Configurations;
@@ -32,7 +31,7 @@ builder.Services.AddEntityFrameworkNpgsql().AddDbContext<AppDbContext>(
 );
 
 //*=> Inject the User repository
-builder.Services.AddScoped<IUserRepo, UserRepo>();
+// builder.Services.AddScoped<IUserRepo, UserRepo>();
 
 //*=> Inject the UnitOfWork serivce
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();

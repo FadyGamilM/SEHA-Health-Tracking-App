@@ -1,0 +1,12 @@
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.Authentication\bin\Debug\net6.0\SehaNotebook.Authentication.deps.json
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.Authentication\bin\Debug\net6.0\SehaNotebook.Authentication.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.Authentication\bin\Debug\net6.0\SehaNotebook.Authentication.pdb
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.Authentication\obj\Debug\net6.0\SehaNotebook.Authentication.csproj.AssemblyReference.cache
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.Authentication\obj\Debug\net6.0\SehaNotebook.Authentication.GeneratedMSBuildEditorConfig.editorconfig
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.Authentication\obj\Debug\net6.0\SehaNotebook.Authentication.AssemblyInfoInputs.cache
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.Authentication\obj\Debug\net6.0\SehaNotebook.Authentication.AssemblyInfo.cs
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.Authentication\obj\Debug\net6.0\SehaNotebook.Authentication.csproj.CoreCompileInputs.cache
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.Authentication\obj\Debug\net6.0\SehaNotebook.Authentication.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.Authentication\obj\Debug\net6.0\refint\SehaNotebook.Authentication.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.Authentication\obj\Debug\net6.0\SehaNotebook.Authentication.pdb
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\SEHA-Health-Tracking-App\SehaNotebook.Authentication\obj\Debug\net6.0\ref\SehaNotebook.Authentication.dll
