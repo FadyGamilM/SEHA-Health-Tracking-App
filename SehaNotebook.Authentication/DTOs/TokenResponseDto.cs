@@ -2,11 +2,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SehaNotebook.Authentication.DTOs
 {
-   public class TokenRequestDto
+   public class TokenResponseDto
    {
-      [Required]
-      public string Token {get; set;}
-      [Required]
+      public string AccessToken {get; set;}
       public string RefreshToken{get; set;}
    }
 }

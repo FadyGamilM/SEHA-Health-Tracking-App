@@ -406,6 +406,9 @@
         }
       },
       "SehaNotebook.Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.UI": "6.0.6"
+        },
         "runtime": {
           "SehaNotebook.Domain.dll": {}
         }

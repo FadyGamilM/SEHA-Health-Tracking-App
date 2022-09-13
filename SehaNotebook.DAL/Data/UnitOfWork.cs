@@ -10,11 +10,15 @@ namespace SehaNotebook.DAL.Data
       private readonly AppDbContext _context;
       private readonly ILogger _logger;
       public IUserRepository UserRepository {get; private set;}
+
+      public IRefreshTokenRepository RefreshTokenRepository {get; private set;}
+
       public UnitOfWork(AppDbContext context , ILoggerFactory loggerFactory)
       {
          _context = context;
          _logger = loggerFactory.CreateLogger("DB_Logs"); 
          UserRepository = new UserRepository(_context, _logger);
+         RefreshTokenRepository = new RefreshTokenRepository(_logger, context);
       }
 
       public async Task CompleteAsyncOperations()

@@ -9,6 +9,7 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using SehaNotebook.Domain.Entities;
+using SehaNotebook.API.Helpers;
 
 namespace SehaNotebook.API.Controllers.V1
 {
@@ -19,16 +20,22 @@ namespace SehaNotebook.API.Controllers.V1
       private readonly UserManager<IdentityUser> _userManager;
       //! Inject the jwtConfig to get the configs from appsettings
       private readonly JwtConfig _jwtConfig;
+      //! Inject the Token Validation Parametr singelton service here 
+      private readonly TokenValidationParameters _tokenValidationParameter;
+      private readonly JwtGenerator _jwtGenerator;
       //! Depedency Injection 
       public AccountController(
          IUnitOfWork unitOfWork, 
          UserManager<IdentityUser> userManager,
-         IOptionsMonitor<JwtConfig> optionsMonitor
+         IOptionsMonitor<JwtConfig> optionsMonitor,
+         TokenValidationParameters tokenValidationParameters
          ) : base(unitOfWork)
       {
          _userManager = userManager;
          // pull the info from the appsetting file 
          _jwtConfig = optionsMonitor.CurrentValue;
+         _tokenValidationParameter = tokenValidationParameters;
+         _jwtGenerator = new JwtGenerator(optionsMonitor, unitOfWork);
       }
 
       //! Register action method
@@ -64,11 +71,12 @@ namespace SehaNotebook.API.Controllers.V1
                var isCreated = await _userManager.CreateAsync(newUser, registerDto.Password);
                if(isCreated.Succeeded){
                   //! Create the jwt token
-                  var jwtToken = GenerateJwtToken(newUser);
+                  var jwtToken = await _jwtGenerator.GenerateJwtToken(newUser);
                   //! the response to the user
                   return Ok(
                      new RegisterResponseDto(){
-                        Token = jwtToken,
+                        Token = jwtToken.AccessToken,
+                        RefreshToken = jwtToken.RefreshToken,
                         Success = true,
                         Errors = new List<string>(){}
                      }
@@ -125,11 +133,12 @@ namespace SehaNotebook.API.Controllers.V1
                if (passMatches == true)
                {
                   //! Generate the jwt token
-                  var jwtToken = GenerateJwtToken(userExists);
+                  var jwtToken = await _jwtGenerator.GenerateJwtToken(userExists);
                   return Ok(
                      new LoginResponseDto(){
                         Success =true,
-                        Token = jwtToken,
+                        Token = jwtToken.AccessToken,
+                        RefreshToken = jwtToken.RefreshToken,
                         Errors = new List<string>(){}
                      }
                   );
@@ -175,34 +184,7 @@ namespace SehaNotebook.API.Controllers.V1
          }
       }
 
-      //! Method to generate a token and return it 
-      private string GenerateJwtToken(IdentityUser user)
-      {
-         var jwtHandler = new JwtSecurityTokenHandler();
-         // get the security key 
-         var key = Encoding.ASCII.GetBytes(_jwtConfig.Secret);
-         // token descriptor contains all info required to create a token
-         var tokenDescriptor = new SecurityTokenDescriptor
-         {
-            Subject = new ClaimsIdentity(
-               new [] {
-                  new Claim("Id", user.Id),
-                  new Claim(JwtRegisteredClaimNames.Sub, user.Email), // must be uniqe id 
-                  new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                  //* unique id for each token, [Jti claim is used for refresh token] 
-                  new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-               }
-            ),
-            Expires = DateTime.UtcNow.Add(_jwtConfig.ExpiryTimeFrame),    
-            // the algorithm to verify 
-            SigningCredentials = new SigningCredentials(
-               new SymmetricSecurityKey(key),
-               SecurityAlgorithms.HmacSha256Signature 
-            )
-         };
-         var token = jwtHandler.CreateToken(tokenDescriptor);
-         var jwtToken = jwtHandler.WriteToken(token);// convert token from object format to string
-         return jwtToken;
-      }
+
+
    }
 }
