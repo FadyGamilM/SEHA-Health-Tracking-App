@@ -34,7 +34,7 @@ namespace SehaNotebook.DAL.Repository
       public async Task<User> GetUserByEmail(string email)
       {
          try{
-            // utilize the _dbSet from the GenericRepository class
+            // utilize the _dbSet froPm the GenericRepository class
             var user = await _dbSet
                                           .Where(user => user.Email == email)
                                           .AsNoTracking()
@@ -67,5 +67,30 @@ namespace SehaNotebook.DAL.Repository
             return true;
          }
       }
+      
+      //! concrete implementation of GetProfileByIdentityId method which is resource-specific related method from IUserRepository
+      public async Task<User> GetProfileByIdentityId(Guid identityId)
+      {
+         try
+         {
+            var userProfile = await _dbSet
+                                                   .Where(user => user.Status == true && user.IdentityId == identityId)
+                                                   .SingleOrDefaultAsync();
+            if (userProfile == null)
+            {
+               return null;
+            }
+            else
+            {
+               return userProfile;
+            } 
+         }
+         catch(Exception ex)
+         {
+            Console.WriteLine(ex.Message);
+            return null;
+         }
+      }
+
    }
 }

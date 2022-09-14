@@ -17,7 +17,7 @@ namespace SehaNotebook.API.Helpers
       private readonly JwtConfig _jwtConfig;
       private readonly IUnitOfWork _unitOfWork;
       //! Inject the Token Validation Parametr singelton service here 
-      private readonly TokenValidationParameters _tokenValidationParameter;
+      private readonly TokenValidationParameters _tokenValidationParameters;
       private readonly UserManager<IdentityUser> _userManager;
       public JwtGenerator(
          IOptionsMonitor<JwtConfig> optionsMonitor, 
@@ -27,9 +27,10 @@ namespace SehaNotebook.API.Helpers
       {
          _jwtConfig = optionsMonitor.CurrentValue;
          _unitOfWork = unitOfWork;
-         _tokenValidationParameter = tokenValidationParameters;
+         _tokenValidationParameters = tokenValidationParameters;
          _userManager = userManager;
       }
+
       //! Method to generate a random string
       internal string GenerateRandomStringForRefreshTokenId (int length)
       {
@@ -52,6 +53,9 @@ namespace SehaNotebook.API.Helpers
             Subject = new ClaimsIdentity(
                new [] {
                   new Claim("Id", user.Id),
+                  //* the identity claim identifier is used to keep track of the logged-in user
+                  //* and this claim will make the api able to identify the user after validate the jwt token has been sent
+                  new Claim(ClaimTypes.NameIdentifier, user.Id),
                   new Claim(JwtRegisteredClaimNames.Sub, user.Email), // must be uniqe id 
                   new Claim(JwtRegisteredClaimNames.Email, user.Email),
                   //* unique id for each token, [Jti claim is used for refresh token] 
@@ -101,7 +105,7 @@ namespace SehaNotebook.API.Helpers
          try{
             var principal = tokenHandler.ValidateToken(
                tokenDto.AccessToken,
-               _tokenValidationParameter,
+               _tokenValidationParameters,
                out var validatedToken
             );
             //* [1] check the validity of the token by checking if this access token is a valid jwt string not just some characters
@@ -137,7 +141,9 @@ namespace SehaNotebook.API.Helpers
                };
             }
             // check if the refresh token exists
-            var refreshTokenExists = await _unitOfWork.RefreshTokenRepository.GetRefreshToken(tokenDto.RefreshToken);
+            var refreshTokenExists = await _unitOfWork
+                                                            .RefreshTokenRepository
+                                                            .GetRefreshToken(tokenDto.RefreshToken);
             if (refreshTokenExists == null)
             {
                return new AuthResultDto
@@ -186,8 +192,10 @@ namespace SehaNotebook.API.Helpers
                   }
                };      
             }
-            var jti = principal.Claims.SingleOrDefault(x => x.Type == JwtRegisteredClaimNames.Jti).Value;
-            if (refreshTokenExists.Jti != jti){
+            var jti = principal.Claims.SingleOrDefault(
+               x => x.Type == JwtRegisteredClaimNames.Jti).Value;
+            if (refreshTokenExists.Jti != jti)
+            {
                return new AuthResultDto
                {
                   Success = false,
@@ -200,14 +208,16 @@ namespace SehaNotebook.API.Helpers
             //! => start processing and get a new token
             // mark this token to be used 
             refreshTokenExists.IsUsed = true;
-            var markingAsUsedTokenResult = await _unitOfWork.RefreshTokenRepository.MarkRefreshTokenAsUsed(refreshTokenExists);
+            var markingAsUsedTokenResult = await _unitOfWork
+                                                                           .RefreshTokenRepository
+                                                                           .MarkRefreshTokenAsUsed(refreshTokenExists);
             
             if (markingAsUsedTokenResult == true)
             {
                await _unitOfWork.CompleteAsyncOperations();
                // get the user to generate a new tojens for him
-               var dbUser = await _userManager.FindByEmailAsync(refreshTokenExists.UserId);
-               if (dbUser == null)
+               var dbUser = await _userManager.FindByIdAsync(refreshTokenExists.UserId);
+               if (dbUser != null)
                {
                   var NewPairsOfTokens = await GenerateJwtToken(dbUser);
                   // return the new pair of tokens :D
@@ -225,11 +235,12 @@ namespace SehaNotebook.API.Helpers
                      Success = false,
                      Errors = new List<string>()
                      {
-                        "Error while processing the reques5"
+                        "Error while processing the request, there is no user related to this token"
                      }
                   };   
             }
             else
+            {
                return new AuthResultDto
                {
                   Success = false,
@@ -238,9 +249,11 @@ namespace SehaNotebook.API.Helpers
                      "Error while processing the reques5"
                   }
                };    
-         }catch(Exception ex){
+            }
+         }
+         catch(Exception ex){
             Console.WriteLine("************************************");
-            Console.WriteLine("I dont know");
+            Console.WriteLine(ex.StackTrace);
             Console.WriteLine("************************************");
             return null;
          }

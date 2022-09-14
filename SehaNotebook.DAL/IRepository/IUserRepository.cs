@@ -8,7 +8,11 @@ namespace SehaNotebook.DAL.IRepository
    public interface IUserRepository : IGenericRepository<User>
    {
       Task<User> GetUserByEmail(string email);
+      
       // update user profile information
       Task<bool> UpdateProfileInfo(User user);
+
+      // get user profile info by the identity id 
+      Task<User> GetProfileByIdentityId(Guid identityId);
    }
 }
