@@ -7,6 +7,7 @@ namespace SehaNotebook.Domain.Entities
    {
       // user id when he/she logged in
       public string UserId {get; set;}
+      // The refresh token itself 
       public string Token {get; set;}
       // the jti generated at the claims when the jwt id has been requested
       public string Jti {get; set;}

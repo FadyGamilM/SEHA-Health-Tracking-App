@@ -51,7 +51,7 @@ builder.Services.AddApiVersioning(
 
 //*=> Configure the authentication mechanism
 var secretKey = Encoding.ASCII.GetBytes(builder.Configuration["JwtConfig:Secret"]);
-var TokenValidationParameters = new TokenValidationParameters()
+var tokenValidationParameters = new TokenValidationParameters()
     {
         //! accept the only tokens that is validated against our secret key 
         ValidateIssuerSigningKey = true,
@@ -61,7 +61,8 @@ var TokenValidationParameters = new TokenValidationParameters()
         RequireExpirationTime = false, // for dev -- needs to be updated when refresh token is added
         ValidateLifetime = true
     };
-builder.Services.AddSingleton(TokenValidationParameters);
+
+builder.Services.AddSingleton(tokenValidationParameters);
 builder.Services
     .AddAuthentication(
         options => {
@@ -72,7 +73,7 @@ builder.Services
     .AddJwtBearer(
         jwt=>{
             jwt.SaveToken = true;
-            jwt.TokenValidationParameters = TokenValidationParameters;
+            jwt.TokenValidationParameters = tokenValidationParameters;
         }
     )
     ;

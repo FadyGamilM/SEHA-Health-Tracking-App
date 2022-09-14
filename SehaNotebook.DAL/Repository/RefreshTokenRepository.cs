@@ -26,5 +26,41 @@ namespace SehaNotebook.DAL.Repository
          }
       }
 
+      public async Task<RefreshToken> GetRefreshToken(string refreshToken)
+      {
+         try{
+            var token = await _dbSet
+                                          .Where(t => t.Token.ToLower() == refreshToken.ToLower())
+                                          .AsNoTracking()
+                                          .FirstOrDefaultAsync();
+            return token;
+         }catch(Exception ex){
+            // utilize the _logger from the GenericRepository class
+            _logger.LogError(ex, $"'{typeof(RefreshTokenRepository)}' : [GetAll] API has generated an error");
+            return new RefreshToken();
+         }
+      }
+
+      public async Task<bool> MarkRefreshTokenAsUsed(RefreshToken refreshToken)
+      {
+         try
+         {
+            var token = await _dbSet
+                                          .Where(t => t.Token.ToLower() == refreshToken.Token.ToLower())
+                                          .AsNoTracking()
+                                          .FirstOrDefaultAsync();
+            if(token == null)
+               return false;
+            else
+               token.IsUsed = refreshToken.IsUsed;
+            return true;
+         }
+         catch(Exception ex)
+         {
+            // utilize the _logger from the GenericRepository class
+            _logger.LogError(ex, $"'{typeof(RefreshTokenRepository)}' : [MarkRefreshTokenAsUsed] API has generated an error");
+            return false;
+         }      
+      }
    }
 }
