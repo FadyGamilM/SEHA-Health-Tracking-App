@@ -46,5 +46,26 @@ namespace SehaNotebook.DAL.Repository
             return null;
          }
       }
+
+      //! concrete implementation of UpdateProfileInfo method which is resource-specific related method from IUserRepository
+      public async Task<bool> UpdateProfileInfo (User user)
+      {
+         var existingUser = await _dbSet
+                                                 .Where(u => u.Id == user.Id && u.Status == true)
+                                                 .SingleOrDefaultAsync();
+         if(existingUser == null)
+            return false;
+         else
+         {
+            existingUser.FirstName = user.FirstName;
+            existingUser.LastName = user.LastName;
+            existingUser.Phone = user.Phone;
+            existingUser.Sex = user.Sex;
+            existingUser.Address = user.Address;
+            existingUser.UpdateDate = DateTime.UtcNow;
+            existingUser.Country = user.Country;
+            return true;
+         }
+      }
    }
 }
